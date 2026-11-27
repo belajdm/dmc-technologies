@@ -17,6 +17,13 @@ jobs:
           [ ${#zips[@]} -eq 0 ] && { echo "No zip"; exit 0; }
           for z in "${zips[@]}"; do unzip -o "$z" -d . && git rm -q "$z"; done
           echo "dmc-technologies.fr" > CNAME
+          # Relier les liens légaux du pied de page (href="#") aux pages dédiées
+          for f in index.html */index.html; do
+            [ -f "$f" ] || continue
+            case "$f" in index.html) p="";; *) p="../";; esac
+            sed -i -e "s|href=\"#\">Mentions légales|href=\"${p}mentions-legales/\">Mentions légales|g" \
+                   -e "s|href=\"#\">Confidentialité|href=\"${p}confidentialite/\">Confidentialité|g" "$f"
+          done
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add -A
