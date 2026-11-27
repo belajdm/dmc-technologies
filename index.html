@@ -16,15 +16,17 @@ p{margin:0}
 @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .marquee:hover .track{animation-play-state:paused !important}
 @media (prefers-reduced-motion:reduce){.track{animation:none !important;flex-wrap:wrap;justify-content:center;width:auto !important}}
+.nav-mob{display:none}.nav-mob summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;color:#0b1a20}.nav-mob summary::-webkit-details-marker{display:none}header{position:relative}
+@media (max-width:760px){.nav-desk{display:none !important}.nav-mob{display:block}.site section{text-align:center}.site section div[style*="flex-wrap: wrap"]{justify-content:center !important}.site section svg{align-self:center}.site ul,.site ol,.site form,.site details,.site .ans,.site aside,.site .net{text-align:left}.site aside svg,.site .net svg{align-self:auto}}
 </style>
 </head>
 <body>
-<div style="font-family: 'Cabin','Segoe UI',system-ui,sans-serif; color: #0b1a20; font-size: 16px; line-height: 1.55">
+<div class="site" style="font-family: 'Cabin','Segoe UI',system-ui,sans-serif; color: #0b1a20; font-size: 16px; line-height: 1.55">
 
 <header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid #d3dde0">
 <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#accueil" aria-label="DMC Technologies, accueil" style="display: flex"><img src="assets/dmc-logo-horizontal.svg" alt="DMC Technologies" style="height: 40px; width: auto"></a>
-<nav aria-label="Navigation principale" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-weight: 600; font-size: 15px">
+<nav class="nav-desk" aria-label="Navigation principale" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-weight: 600; font-size: 15px">
 <a href="#solutions" style="color: #0b1a20; text-decoration: none">Solutions</a>
 <a href="#clients" style="color: #0b1a20; text-decoration: none">Pour qui</a>
 <a href="#implantations" style="color: #0b1a20; text-decoration: none">Implantations</a>
@@ -33,6 +35,7 @@ p{margin:0}
 <a href="aide/" style="color: #0b1a20; text-decoration: none">Aide</a>
 <a href="#contact" style="background: #0a6fb0; color: #ffffff; text-decoration: none; padding: 12px 22px; border-radius: 16px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Demander un devis</a>
 </nav>
+<details class="nav-mob"><summary aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><nav aria-label="Menu mobile" style="position:absolute;left:0;right:0;top:100%;background:#ffffff;border-bottom:1px solid #d3dde0;padding:4px 24px 16px;box-shadow:0 12px 24px rgba(15,35,43,.12);z-index:20"><a href="#solutions" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Solutions</a><a href="#clients" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Pour qui</a><a href="#implantations" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Implantations</a><a href="#pourquoi" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Pourquoi DMC</a><a href="social-networks/" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Communautés</a><a href="aide/" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Aide</a><a href="#contact" style="display:block;padding:14px 4px;border-bottom:1px solid #d3dde0;color:#0b1a20;text-decoration:none;font-weight:600;font-size:17px">Demander un devis</a></nav></details>
 </div>
 </header>
 
@@ -283,6 +286,7 @@ p{margin:0}
 </footer>
 
 </div>
+<script>document.querySelectorAll('.nav-mob a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false;});});</script>
 
 </body>
 </html>

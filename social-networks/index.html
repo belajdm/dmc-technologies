@@ -23,20 +23,23 @@ p{margin:0}
 .pole:focus-visible,.hub:focus-visible{outline:2px solid #c9a24a;outline-offset:3px}
 .chan{transition:background-color .2s}.chan:hover{background-color:#1d3e4b !important}
 @media (max-width:720px){.net{aspect-ratio:3/4 !important}.pole{width:100px !important;padding:9px !important;font-size:13px}.pole-sub{display:none !important}.hub{width:96px !important;height:96px !important}.hub-sub{display:none !important}}
+.nav-mob{display:none}.nav-mob summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;color:#f1f5f6}.nav-mob summary::-webkit-details-marker{display:none}header{position:relative}
+@media (max-width:760px){.nav-desk{display:none !important}.nav-mob{display:block}.site section{text-align:center}.site section div[style*="flex-wrap: wrap"]{justify-content:center !important}.site section svg{align-self:center}.site ul,.site ol,.site form,.site details,.site .ans,.site aside,.site .net{text-align:left}.site aside svg,.site .net svg{align-self:auto}}
 </style>
 </head>
 <body>
-<div style="font-family: 'Cabin','Segoe UI',system-ui,sans-serif; color: #f1f5f6; font-size: 16px; line-height: 1.55; background: #0b1c24; min-height: 100vh">
+<div class="site" style="font-family: 'Cabin','Segoe UI',system-ui,sans-serif; color: #f1f5f6; font-size: 16px; line-height: 1.55; background: #0b1c24; min-height: 100vh">
 
 <header style="border-bottom: 1px solid #1f3b47">
 <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="../" aria-label="DMC Technologies, retour à l'accueil" style="display: flex"><img src="../assets/dmc-logo-horizontal-blanc.svg" alt="DMC Technologies" style="height: 38px; width: auto"></a>
-<nav aria-label="Navigation" style="display: flex; flex-wrap: wrap; gap: 24px; font-weight: 600; font-size: 15px">
+<nav class="nav-desk" aria-label="Navigation" style="display: flex; flex-wrap: wrap; gap: 24px; font-weight: 600; font-size: 15px">
 <a href="../" style="color: #f1f5f6; text-decoration: none">Accueil</a>
 <a href="../" style="color: #f1f5f6; text-decoration: none">Solutions</a>
 <a href="#reseau" style="color: #c9a24a; text-decoration: none">Communautés</a>
 <a href="../aide/" style="color: #f1f5f6; text-decoration: none">Aide</a>
 </nav>
+<details class="nav-mob"><summary aria-label="Ouvrir le menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><nav aria-label="Menu mobile" style="position:absolute;left:0;right:0;top:100%;background:#0f232b;border-bottom:1px solid #1f3b47;padding:4px 24px 16px;box-shadow:0 12px 24px rgba(15,35,43,.12);z-index:20"><a href="../" style="display:block;padding:14px 4px;border-bottom:1px solid #1f3b47;color:#f1f5f6;text-decoration:none;font-weight:600;font-size:17px">Accueil</a><a href="../" style="display:block;padding:14px 4px;border-bottom:1px solid #1f3b47;color:#f1f5f6;text-decoration:none;font-weight:600;font-size:17px">Solutions</a><a href="#reseau" style="display:block;padding:14px 4px;border-bottom:1px solid #1f3b47;color:#f1f5f6;text-decoration:none;font-weight:600;font-size:17px">Communautés</a><a href="../aide/" style="display:block;padding:14px 4px;border-bottom:1px solid #1f3b47;color:#f1f5f6;text-decoration:none;font-weight:600;font-size:17px">Aide</a></nav></details>
 </div>
 </header>
 
@@ -93,6 +96,7 @@ p{margin:0}
 </div>
 </footer>
 </div>
+<script>document.querySelectorAll('.nav-mob a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false;});});</script>
 <script>
 (function(){
 var data = [
