@@ -1,0 +1,24 @@
+name: Unzip site
+on:
+  push:
+    paths: ['*.zip', '.github/workflows/unzip-site.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract zip at repository root
+        run: |
+          shopt -s nullglob
+          zips=(*.zip)
+          [ ${#zips[@]} -eq 0 ] && { echo "No zip"; exit 0; }
+          for z in "${zips[@]}"; do unzip -o "$z" -d . && git rm -q "$z"; done
+          echo "dmc-technologies.fr" > CNAME
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish site from zip" || echo "Nothing to commit"
+          git push
